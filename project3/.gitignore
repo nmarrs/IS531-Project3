@@ -1,0 +1,35 @@
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# other misc files
+*.css.map
+*.log
+*.pot
+*.pyc
+*.rdb
+*.tfile
+.#*
+.DS_Store
+.cache/
+.cached_templates/
+.emacs-project
+.idea/
+.python-version
+.sass-cache/
+.tm_properties
+.vagrant
+.vault-pass.key
+__combined_site_code.*
+_build
+cached_templates/
+django.mo
+flycheck_*
+minified_static_files/
+node_modules/
+shellrc.py
+template_cache/
+.terraform/
+venv/
+webpack-stats.json

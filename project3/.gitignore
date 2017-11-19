@@ -4,6 +4,7 @@
 !.elasticbeanstalk/*.global.yml
 
 # other misc files
+*.sqlite3
 *.css.map
 *.log
 *.pot

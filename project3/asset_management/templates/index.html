@@ -102,10 +102,9 @@
           $('#button').click(function(event) {
               // Stop the link from redirecting
               event.preventDefault();
-
               // Redirect instead with JavaScript
-              window.location.href = element.href + '?search= '+ $('#search').val();
-          }, false);
+              window.location.href = $('#button').attr('href') + '?search='+ $('#search').val();
+          });
         });
       </script>
     </body>

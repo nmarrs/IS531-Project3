@@ -11,7 +11,7 @@ def index(request):
     else:
         asset_search_query = request.GET.get('search')
         try:
-            asset_list = amod.Asset.objects.filter(name__icontains=asset_search_query)
+            asset_list = amod.Asset.objects.filter(name__name__icontains=asset_search_query)
         except amod.Asset.DoesNotExist:
             asset_list = None
     params = {

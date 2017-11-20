@@ -68,8 +68,8 @@
         <th>Organization</th>
         <th>Employee Assigned</th>
       </tr>
-      <tr>
-        {% for asset in asset_list %}
+      {% for asset in asset_list %}
+        <tr>
             <td>{{ asset.tag }}</td>
             <td>{{ asset.name }}</td>
             <td>{{ asset.description }}</td>
@@ -78,8 +78,8 @@
             <td>{{ asset.location.office_location }}</td>
             <td>{{ asset.organization.name }}</td>
             <td>{{ asset.employee.name }}</td>
-        {% endfor %}
-      </tr>
+        </tr>
+      {% endfor %}
     </table>
   </div>
 {% else %}

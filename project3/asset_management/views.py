@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
+from django.db.models import Q
 
 from asset_management import models as amod
 
@@ -11,7 +12,7 @@ def index(request):
     else:
         asset_search_query = request.GET.get('search')
         try:
-            asset_list = amod.Asset.objects.filter(name__name__icontains=asset_search_query)
+            asset_list = amod.Asset.objects.filter(Q(name__name__icontains=asset_search_query) | Q(location__office_location__icontains=asset_search_query) | Q(tag__icontains=asset_search_query) | Q(organization__name__icontains=asset_search_query) | Q(employee__name__icontains=asset_search_query) | Q(manufacturer__name__icontains=asset_search_query) | Q(manufacturer__part_number__icontains=asset_search_query))
         except amod.Asset.DoesNotExist:
             asset_list = None
     params = {

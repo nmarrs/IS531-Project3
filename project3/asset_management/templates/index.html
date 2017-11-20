@@ -1,3 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Link to connect to jquery via googleapis -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel=icon href=/static/asset_management/media/group-project.png>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="/static/asset_management/media/group-project.png"/></a>
+        <a class="navbar-brand" href="#">Asset Management</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Features<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/admin/">Admin Homepage</a></li>
+              <li><a href="/admin/asset_management/">Asset Management Homepage</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/admin/asset_management/asset/">Asset Management</a></li>
+              <li><a href="/admin/asset_management/employee/">Employee Management</a></li>
+              <li><a href="/admin/asset_management/location/">Location Management</a></li>
+              <li><a href="/admin/asset_management/manufacturer/">Manufacturer Management</a></li>
+              <li><a href="/admin/asset_management/organization/">Organization Management</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
 {% if asset_list %}
     <ul>
     {% for asset in asset_list %}
@@ -7,3 +65,6 @@
 {% else %}
     <p>No assets are available.</p>
 {% endif %}
+
+</body>
+</html>

@@ -76,7 +76,7 @@ class Asset(models.Model):
     name = models.TextField(blank=True, null=True, choices=ASSET_NAMES)
     description = models.TextField(blank=True, null=True)
     maintenance_notes = models.TextField(blank=True, null=True)
-    date_acquired = models.DateField('date acquired', blank=True, null=True, default='July, 2000')
+    date_acquired = models.DateField('date acquired', blank=True, null=True, default='2017-11-19')
     date_implemented = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

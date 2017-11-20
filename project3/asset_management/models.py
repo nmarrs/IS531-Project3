@@ -4,12 +4,12 @@ from django.db import models
 class Location(models.Model):
     ''' A model that represents a location object '''
     LOCATIONS = (
-        ('SJ', 'San Jose, CA, USA'),
-        ('LA', 'Los Angeles, CA, USA'),
-        ('D', 'Denver, CO, USA'),
-        ('M', 'Madrid, Spain'),
-        ('P', 'Paris, FrancLe'),
-        ('B', 'Beijing, China'),
+        ('San Jose', 'San Jose, CA, USA'),
+        ('Los Angeles', 'Los Angeles, CA, USA'),
+        ('Denver', 'Denver, CO, USA'),
+        ('Madrid', 'Madrid, Spain'),
+        ('Paris', 'Paris, FrancLe'),
+        ('Beijing', 'Beijing, China'),
     )
     location = models.TextField(blank=True, null=True, choices=LOCATIONS)
 
@@ -49,9 +49,9 @@ class Manufacturer(models.Model):
 class Employee(models.Model):
     ''' A model that represents a location object '''
     ROLE_TYPES = (
-        ('A', 'Admin'),
-        ('M', 'Manager'),
-        ('E', 'Employee'),
+        ('admin', 'Admin'),
+        ('manager', 'Manager'),
+        ('employee', 'Employee'),
     )
     name = models.TextField(blank=True, null=True)
     role = models.TextField(blank=True, null=True, choices=ROLE_TYPES)

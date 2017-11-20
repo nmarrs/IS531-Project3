@@ -8,7 +8,7 @@ class Location(models.Model):
         ('LA', 'Los Angeles, CA, USA'),
         ('D', 'Denver, CO, USA'),
         ('M', 'Madrid, Spain'),
-        ('P', 'Paris, France'),
+        ('P', 'Paris, FrancLe'),
         ('B', 'Beijing, China'),
     )
     location = models.TextField(blank=True, null=True, choices=LOCATIONS)
@@ -33,11 +33,11 @@ class Organization(models.Model):
 class Manufacturer(models.Model):
     ''' A model that represents a manufacturer object '''
     MANUFACTURER_NAMES = (
-        ('D', 'Dell'),
-        ('A', 'Apple'),
-        ('T', 'Tesla'),
-        ('SX', 'SpaceX'),
-        ('M', 'Microsoft'),
+        ('Dell', 'Dell'),
+        ('Apple', 'Apple'),
+        ('Tesla', 'Tesla'),
+        ('SpaceX', 'SpaceX'),
+        ('Microsoft', 'Microsoft'),
     )
     name = models.TextField(blank=True, null=True, choices=MANUFACTURER_NAMES)
     description = models.TextField(blank=True, null=True)
@@ -62,11 +62,11 @@ class Employee(models.Model):
 class Asset(models.Model):
     ''' A model that represents an asset object '''
     ASSET_NAMES = (
-        ('C', 'Computer'),
-        ('P', 'Phone'),
-        ('S', 'Software'),
-        ('C', 'Car'),
-        ('R', 'Rocket'),
+        ('computer', 'Computer'),
+        ('phone', 'Phone'),
+        ('software', 'Software'),
+        ('car', 'Car'),
+        ('rocket', 'Rocket'),
     )
     location = models.ForeignKey(Location, blank=True)
     organization = models.ForeignKey(Organization, blank=True)

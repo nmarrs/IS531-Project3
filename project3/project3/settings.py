@@ -80,7 +80,7 @@ DATABASES = {
             'NAME': 'ebdb',
             'USER': 'batchelb',
             'PASSWORD': 'ISRocks!',
-            'HOST': 'aa19u69gsdxviyn.cswsr6wvrwv2.us-west-2.rds.amazonaws.com:5432',
+            'HOST': '52.40.15.92',
             'PORT': '5432',
         }
 }

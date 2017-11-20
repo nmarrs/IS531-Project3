@@ -72,10 +72,11 @@ class Asset(models.Model):
     organization = models.ForeignKey(Organization, blank=True)
     manufacturer = models.ForeignKey(Manufacturer, blank=True)
     employee = models.ForeignKey(Employee, blank=True)
-    tag = models.CharField(blank=True, null=True, max_length=10)
+    tag = models.CharField(blank=True, null=True, max_length=10, unique=True)
     name = models.TextField(blank=True, null=True, choices=ASSET_NAMES)
     description = models.TextField(blank=True, null=True)
     maintenance_notes = models.TextField(blank=True, null=True)
+    date_acquired = models.TextField(blank=True, null=True, default='July, 2000')
     date_implemented = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

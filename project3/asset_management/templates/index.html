@@ -13,7 +13,7 @@
   <link rel=icon href=/static/asset_management/media/group-project.png>
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" style="background:#417690">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -23,7 +23,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Asset Management</a>
+        <a class="navbar-brand" href="#" style="color:white">Asset Management</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,11 +32,11 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default">Search</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Features<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:white">Admin<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/admin/">Admin Homepage</a></li>
               <li><a href="/admin/asset_management/">Asset Management Homepage</a></li>
@@ -52,47 +52,47 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-<h1>Current Available Assets</h1>
-<p>Note: This is read only copy of enterprise assets, in order to edit the data please log into the admin website.</p>
-<a style="margin:1em" class="btn btn-success" href="/admin/asset_management/asset/add/">Add New Asset</a>
-
-{% if asset_list %}
+<div style="padding: 20px;">
+  <h1 style="margin-top: 0px;">Current Available Assets</h1>
+  <p>Note: This is read only copy of enterprise assets, in order to edit the data please log into the admin website.</p>
+  
+  {% if asset_list %}
   <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <tr>
+    <table class="table table-striped table-hover" style="border: solid #ddd 1px;">
+      <tr style="background:#79aec8; color:white;">
         <th>Tag</th>
         <th>Name</th>
-        <th>Description</th>
-        <th>Maintenance Notes</th>
-        <th>Date Acquired</th>
-        <th>Location</th>
-        <th>Organization</th>
-        <th>Employee Assigned</th>
-        <th>Edit Asset</th>
-      </tr>
-      {% for asset in asset_list %}
-        <tr>
-            <td>{{ asset.tag }}</td>
-            <td>{{ asset.name }}</td>
-            <td>{{ asset.description }}</td>
-            <td>{{ asset.maintenance_notes }}</td>
-            <td>{{ asset.date_acquired }}</td>
-            <td>{{ asset.location.office_location }}</td>
-            <td>{{ asset.organization.name }}</td>
-            <td>{{ asset.employee.name }}</td>
-            <td>
-              <a class="btn-sm btn-warning" href="/admin/asset_management/asset/{{ asset.id }}/change/">Edit</a>
-              <br />
-              <a class="btn-sm btn-danger" href="/admin/asset_management/asset/{{ asset.id }}/delete/">Delete</a>
-            </td>
+          <th>Description</th>
+          <th>Maintenance Notes</th>
+          <th>Date Acquired</th>
+          <th>Location</th>
+          <th>Organization</th>
+          <th>Employee Assigned</th>
+          <th>Edit Asset</th>
         </tr>
-      {% endfor %}
-    </table>
-  </div>
-{% else %}
-    <p>No assets are available. You can go create some in the admin website using the button above.</p>
-{% endif %}
-
-</body>
-</html>
+        {% for asset in asset_list %}
+        <tr>
+              <td>{{ asset.tag }}</td>
+              <td>{{ asset.name }}</td>
+              <td>{{ asset.description }}</td>
+              <td>{{ asset.maintenance_notes }}</td>
+              <td>{{ asset.date_acquired }}</td>
+              <td>{{ asset.location.office_location }}</td>
+              <td>{{ asset.organization.name }}</td>
+              <td>{{ asset.employee.name }}</td>
+              <td style="display:flex;">
+                <a class="btn-sm btn-warning" href="/admin/asset_management/asset/{{ asset.id }}/change/" style="margin-right: 5px;">Edit</a>
+                <a class="btn-sm btn-danger" href="/admin/asset_management/asset/{{ asset.id }}/delete/">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        {% else %}
+        <p>No assets found</p>
+        {% endif %}
+        <a class="btn btn-success pull-right"  style="color:white; background: #417690" href="/admin/asset_management/asset/add/">Add New Asset</a>
+      </div>
+    </body>
+    </html>
+    

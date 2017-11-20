@@ -11,10 +11,10 @@ class Location(models.Model):
         ('Paris', 'Paris, FrancLe'),
         ('Beijing', 'Beijing, China'),
     )
-    location = models.TextField(blank=True, null=True, choices=LOCATIONS)
+    office_location = models.TextField(blank=True, null=True, choices=LOCATIONS)
 
     def __str__(self):
-        return '{}: {}'.format(self.pk, self.location)
+        return '{}: {}'.format(self.pk, self.office_location)
 
 
 class Organization(models.Model):

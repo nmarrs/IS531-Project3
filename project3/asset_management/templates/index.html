@@ -53,16 +53,37 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<h1>Current Available Assets</h1>
+<p>Note: This is read only copy of enterprise assets, in order to edit the data please log into the admin website.</p>
 {% if asset_list %}
-    <ul>
-    {% for asset in asset_list %}
-        <li><a href="/asset_management/{{ asset.id }}/">{{ asset.name }}</a></li>
-    {% endfor %}
-    </ul>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Tag</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Maintenance Notes</th>
+        <th>Date Acquired</th>
+        <th>Location</th>
+        <th>Organization</th>
+        <th>Employee Assigned</th>
+      </tr>
+      <tr>
+        {% for asset in asset_list %}
+            <td>{{ asset.tag }}</td>
+            <td>{{ asset.name }}</td>
+            <td>{{ asset.description }}</td>
+            <td>{{ asset.maintenance_notes }}</td>
+            <td>{{ asset.date_acquired }}</td>
+            <td>{{ asset.location.office_location }}</td>
+            <td>{{ asset.organization.name }}</td>
+            <td>{{ asset.employee.name }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
 {% else %}
-    <p>No assets are available.</p>
+    <p>No assets are available. You can go create some in the admin website.</p>
 {% endif %}
 
 </body>

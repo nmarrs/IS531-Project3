@@ -6,7 +6,14 @@ from asset_management import models as amod
 
 
 def index(request):
-    asset_list = amod.Asset.objects.order_by('-date_implemented')
+    if not request.GET.get('search'):
+        asset_list = amod.Asset.objects.order_by('-date_implemented')
+    else:
+        asset_search_query = request.GET.get('search')
+        try:
+            asset_list = amod.Asset.objects.filter(name__icontains=asset_search_query)
+        except amod.Asset.DoesNotExist:
+            asset_list = None
     params = {
         'asset_list': asset_list,
     }

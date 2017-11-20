@@ -75,6 +75,9 @@ class AssetName(models.Model):
     )
     name = models.TextField(blank=True, null=True, choices=ASSET_NAMES)
 
+    def __str__(self):
+        return '{}: {}'.format(self.pk, self.name)
+
 class Asset(models.Model):
     ''' A model that represents an asset object '''
     location = models.ForeignKey(Location, blank=True)

@@ -41,6 +41,7 @@ class Manufacturer(models.Model):
         ('Microsoft', 'Microsoft'),
     )
     name = models.TextField(blank=True, null=True, choices=MANUFACTURER_NAMES)
+    part_number = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):

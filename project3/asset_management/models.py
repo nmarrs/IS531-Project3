@@ -59,8 +59,13 @@ class Employee(models.Model):
     def __str__(self):
         return '{}: {}, {}'.format(self.pk, self.name, self.role)
 
-class Asset(models.Model):
-    ''' A model that represents an asset object '''
+class AssetName(models.Model):
+    ''' A model that represents an asset name object.
+    We added this in order to get a nice dropdown in the admin site,
+    as well as to be able to manage the type of
+    assets employees are able to input to reduce
+    variability.
+    '''
     ASSET_NAMES = (
         ('computer', 'Computer'),
         ('phone', 'Phone'),
@@ -68,12 +73,16 @@ class Asset(models.Model):
         ('car', 'Car'),
         ('rocket', 'Rocket'),
     )
+    name = models.TextField(blank=True, null=True, choices=ASSET_NAMES)
+
+class Asset(models.Model):
+    ''' A model that represents an asset object '''
     location = models.ForeignKey(Location, blank=True)
     organization = models.ForeignKey(Organization, blank=True)
     manufacturer = models.ForeignKey(Manufacturer, blank=True)
     employee = models.ForeignKey(Employee, blank=True)
+    name = models.ForeignKey(AssetName, blank=True, null=True)
     tag = models.CharField(blank=True, null=True, max_length=10, unique=True)
-    name = models.TextField(blank=True, null=True, choices=ASSET_NAMES)
     description = models.TextField(blank=True, null=True)
     maintenance_notes = models.TextField(blank=True, null=True)
     date_acquired = models.DateField('date acquired', blank=True, null=True, default='2017-11-19')

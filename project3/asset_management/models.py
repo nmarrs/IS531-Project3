@@ -87,11 +87,11 @@ class Asset(models.Model):
     manufacturer = models.ForeignKey(Manufacturer, blank=True)
     employee = models.ForeignKey(Employee, blank=True)
     name = models.ForeignKey(AssetName, blank=True, null=True)
-    tag = models.CharField(blank=True, null=True, max_length=10, unique=True, validators=[RegexValidator(regex='^.{10}$', message='Length has to be 10 characters', code='nomatch')])
+    tag = models.CharField(blank=True, null=True, max_length=10, unique=True, validators=[RegexValidator(regex='^.{10}$', message='Length has to be 10 characters', code='nomatch')]) # tag must be 10 chars, and also must be unique
     description = models.TextField(blank=True, null=True)
     maintenance_notes = models.TextField(blank=True, null=True)
-    date_acquired = models.DateField('date acquired', blank=True, null=True, default='2017-11-19')
-    date_implemented = models.DateTimeField(auto_now_add=True)
+    date_acquired = models.DateField('date acquired', blank=True, null=True, default='2017-11-19') # date asset was purchased by company
+    date_implemented = models.DateTimeField(auto_now_add=True) # date asset was entered into the system for tracking purposes
 
     def __str__(self):
         return '{}: {}, {}, {}, {}, {}'.format(self.pk, self.tag, self.name, self.description, self.maintenance_notes, self.date_implemented)

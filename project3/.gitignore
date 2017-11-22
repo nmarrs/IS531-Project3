@@ -1,3 +1,5 @@
+# .gitignore file used to tell git which file types not to track
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
